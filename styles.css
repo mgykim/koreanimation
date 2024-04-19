@@ -1,28 +1,29 @@
+@font-face {
+    font-family: 'Porkys';
+    src: url('media/PORKYS_.TTF') format('truetype'),
+}
+@font-face {
+    font-family: 'DoranDoran';
+    src: url('media/Typo_DoranDoran EB.ttf') format('truetype'),
+}
+
+:root {
+    --dbrown: #37172f;
+    --magenta: #db3d77;
+    --teal: #2bcfab;
+    --mint: #b7cf86;
+    --beige: #ffe8a4;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Porkys', sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
-    background-color: #f4f4f4;
-}
-
-header, nav, main, footer {
-    padding: 20px;
-    margin: 10px;
-}
-
-header {
-    background: #333;
-    color: #fff;
-}
-
-nav {
-    background: #ccc;
+    background-color: #ffe8a4;
 }
 
 footer {
     background: #333;
     color: white;
-    text-align: center;
 }
