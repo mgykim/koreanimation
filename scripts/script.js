@@ -11,11 +11,36 @@ var animation = bodymovin.loadAnimation({
   });
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+var playIdle = false;
 
- 
+
+const continueAnimation = async () => {
+  animation.play();
+  event.target.removeEventListener("mousedown",pauseAnimation);
+  event.target.removeEventListener("mouseup",continueAnimation);
+}
+
+const playIdleAnimation = async () => {
+  animation.play();
+  await sleep(timingArray[currentIndex]);
+  animation.goToAndPlay(13000,false);
+}
+
+const pauseAnimation =  async () =>{
+  animation.play();
+  await sleep('600');
+}
+var animationDiv = document.getElementById('animationContainer');
+
 const startAnimation = async () => {
-    await sleep(12000);
-    animation.stop();
+    await sleep(4000);
+    animation.pause();
+    animationDiv.addEventListener("mousedown",pauseAnimation);
+    animationDiv.addEventListener("mouseup",continueAnimation);
 }
 
 startAnimation();
+
+// if (playIdle){
+//   playIdleAnimation();
+// }
