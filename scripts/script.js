@@ -28,7 +28,8 @@ const playIdleAnimation = async () => {
 
 const pauseAnimation =  async () =>{
   animation.play();
-  await sleep('600');
+  await sleep('200');
+  animation.pause();
 }
 var animationDiv = document.getElementById('animationContainer');
 
