@@ -12,6 +12,10 @@
     box-sizing: border-box;
 }
 
+.play-letter-btn {
+    background-color: green;
+    right:0;
+}
 .play-pause-btn {
     background-color: #db3d77;
     font-size: 16px;
