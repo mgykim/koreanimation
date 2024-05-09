@@ -6,21 +6,16 @@
     <title>K오REANIMATION</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <audio  id="bgmusic" loop>
-        <source src="media\산토끼 Instrumental.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    <button onclick="togglePlay()" class="play-pause-btn">Play/Pause</button>
-
     <header>
-        <a href="pages/about.html">ABOUT</a>
+        <a href="pages/about.html">ABOUT<i class="fa-solid fa-circle-info"></i></a>
         <nav>
             <ul class="nav-list">
                 <li class="dropdown">
-                    <a href="#">LETTERS</a>
+                    <a href="#">LETTERS<i class="fa-solid fa-circle-play"></i></a>
                     <div class="dropdown-content">
                         <a href="pages/babyAnim.html">ㅏ</a>
                         <a href="pages/duckAnim.html">ㅗ</a>
@@ -32,8 +27,15 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section class="home-screen">
             <div id="animationContainer" class="title-animation"></div>
+            <audio  id="bgmusic" loop>
+                <source src="media\산토끼 Instrumental.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button onclick="togglePlay()" class="play-pause-btn">
+                <i class="fas fa-volume-mute"></i>
+            </button>
         </section>
     </main>
     <footer>By: Megan Kim</footer>
@@ -43,12 +45,15 @@
     <script>
         var myAudio = document.getElementById("bgmusic");
         var isPlaying = false;
-    
+
         function togglePlay() {
+            var icon = document.querySelector('button i');
             if (isPlaying) {
                 myAudio.pause();
+                icon.className = 'fas fa-volume-mute';
             } else {
                 myAudio.play();
+                icon.className = 'fa-solid fa-music';
             }
             isPlaying = !isPlaying;
         }

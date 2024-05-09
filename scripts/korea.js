@@ -50,7 +50,7 @@ const stopIdle = () => {
   animationDiv.removeEventListener("mousedown",stopIdle);
   idleCheck = false;
   clearInterval(idleInterval); // Ensure to clear the interval when stopping the idle
-  animation.playSegments([337,400],true);
+  animation.playSegments([337,370],true);
   setTimeout(() => {
     displayNextButton();
   },1700);

@@ -6,15 +6,16 @@
     <title>K오REANIMATION</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <a href="about.html">ABOUT</a>
+        <a href="about.html">ABOUT<i class="fa-solid fa-circle-info"></i></a>
         <a href="../index.html"><img src="../media/Header Logo.jpg"/></a>
         <nav>
             <ul class="nav-list">
                 <li class="dropdown">
-                    <a href="#">LETTERS</a>
+                    <a href="#">LETTERS<i class="fa-solid fa-circle-play"></i></a>
                     <div class="dropdown-content">
                         <a href="babyAnim.html">ㅏ</a>
                         <a href="duckAnim.html">ㅗ</a>
@@ -29,11 +30,11 @@
         <section>
             <div id="animationContainer" class="animationContainer"></div>
         </section>
-        <a href="koreaAnim.html">
-            <button class="play-pause-btn" id="prev-button" hidden>Play/Pause</button>
+        <a href="koreaAnim.html" class="switch-letter-btn left" id="prev-button" hidden>
+            <i class="fa-regular fa-hand-point-left"></i>
         </a>
-        <a href="babyAnim.html">
-            <button class="play-pause-btn" id="next-button" hidden>Play/Pause</button>
+        <a href="babyAnim.html" class="switch-letter-btn right" id="next-button" hidden>
+            <i class="fa-regular fa-hand-point-right"></i>
         </a>
     </main>
     <footer>By: Megan Kim</footer>

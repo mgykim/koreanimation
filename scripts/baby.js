@@ -38,7 +38,7 @@ const playIdle = () => {
   // displayAudioButton();
   idleInterval = setInterval(() => {
     if (idleCheck) {
-      animation.playSegments([437,455], true);
+      animation.playSegments([440,455], true);
     } else {
       clearInterval(idleInterval); // Clear the interval if idleCheck is false
       // animation.play();

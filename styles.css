@@ -12,27 +12,6 @@
     box-sizing: border-box;
 }
 
-.play-letter-btn {
-    background-color: green;
-    right:0;
-}
-.play-pause-btn {
-    background-color: #db3d77;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: 3px solid var(--dbrown);
-    border-radius: 100px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.play-pause-btn:hover {
-    background-color: #ff6491;
-}
-
-.play-pause-btn:active {
-    transform: scale(0.98);
-}
 
 :root {
     --dbrown: #37172f;
@@ -52,12 +31,75 @@ body {
 }
 
 button{
-    top:0;
     z-index: 3;
     position: fixed;
 }
 
+button i {
+    color: var(--dbrown);
+    font-size: 	1.5em;
+}
 
+.fa-circle-play, .fa-circle-info{
+    font-size: 1em;
+    margin-left: 10px;
+}
+.play-pause-btn {
+    background-color: #2bcfab;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 3px solid var(--dbrown);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    top: 25%;
+}
+
+.play-pause-btn:hover {
+    background-color: #48e2c1;
+}
+
+.play-pause-btn:active {
+    transform: scale(0.95);
+}
+
+.switch-letter-btn {
+    background-color: #2bcfab;
+    color: var(--dbrown);
+    font-size: 3em;
+    padding: 10px 20px;
+    border: 5px solid var(--dbrown);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    top: 45%;
+}
+.left {
+    left: 40%;
+}
+.right {
+    right: 40%;
+}
+
+.switch-letter-btn:hover {
+    background-color: #48e2c1;
+}
+
+.switch-letter-btn:active {
+    transform: scale(0.95);
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-screen {
+    display: flex;
+    justify-content: center;
+}
 .title-animation {
     position: fixed;
     height: auto;
@@ -71,7 +113,7 @@ button{
     height: auto;
     top: 52%;
     left: 50%;
-    width: 80%;
+    width: 70%;
     transform: translate(-50%, -50%);
 }
 #pacifier{
@@ -104,3 +146,5 @@ p {
 .about-text{
     padding: 15vh 25% 10vh 25%; 
 }
+
+

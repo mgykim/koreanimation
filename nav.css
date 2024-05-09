@@ -29,6 +29,7 @@ nav {
     
 }
 
+
 .nav-list {
     list-style-type: none;
     margin: 0;
@@ -55,13 +56,14 @@ nav {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    width: 100%;
+    width: 60%;
+    margin: 0 20%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
 nav .dropdown-content a {
-    background-color: black;
+    background-color: var(--dbrown);
     color: white;
     display: block;
     font-family: 'DoranDoran';
