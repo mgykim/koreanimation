@@ -46,13 +46,14 @@ const playIdle = () => {
   }, 1000); // Interval set to 1000 milliseconds (1 second)
 }
 
-const stopIdle = async () => {
-  console.log("stopIdle triggered");
+const stopIdle = () => {
+  animationDiv.removeEventListener("mousedown",stopIdle);
   idleCheck = false;
   clearInterval(idleInterval); // Ensure to clear the interval when stopping the idle
   animation.playSegments([456,480],true);
-  animationDiv.removeEventListener("mousedown",stopIdle);
-  displayNextButton();
+  setTimeout(() => {
+    displayNextButton();
+  },720);
 }
 
 const displayNextButton = () => {

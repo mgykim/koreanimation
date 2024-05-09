@@ -8,6 +8,7 @@ var animation = bodymovin.loadAnimation({
     renderer: 'canvas', // Render type: 'canvas', 'html'
     loop: false, // loop the animation
     autoplay: true, // start playing the animation as soon as it is loaded
+    initialSegment: [0,120],
     path: '../animations/duck/data.json', // the path to the animation json
   });
 
@@ -18,20 +19,31 @@ var animationDiv = document.getElementById('animationContainer');
 var pacifierDiv = document.getElementById('pacifier');
 
 const pauseAndPlay =  async () =>{
-  animation.play();
-  await sleep(250);
-  animation.pause();
-  animation.play();
+  animation.playSegments([120,300],true);
+  setTimeout(() => {
+    idleCheck = true;
+    animationDiv.addEventListener("mousedown", stopIdle);
+    playIdle();
+  },4800);
   animationDiv.removeEventListener("mousedown",pauseAndPlay);
   idleCheck = true;
-  await sleep(6300);
-  animationDiv.addEventListener("mousedown", stopIdle);
-  playIdle();
+  // await sleep(4800);
+  // playIdle();  
 }
+// const pauseAndPlay =  async () =>{
+//   animation.play();
+//   await sleep(250);
+//   animation.pause();
+//   animation.play();
+//   animationDiv.removeEventListener("mousedown",pauseAndPlay);
+//   idleCheck = true;
+//   await sleep(6300);
+//   animationDiv.addEventListener("mousedown", stopIdle);
+//   playIdle();
+// }
 
 const startAnimation = async () => {
-    await sleep(4380);
-    animation.pause();
+    await sleep(3600);
     animationDiv.addEventListener("mousedown",pauseAndPlay);
 }
 var idleInterval; // Variable to hold the interval ID
@@ -41,22 +53,23 @@ const playIdle = () => {
   idleInterval = setInterval(() => {
     if (idleCheck) {
       console.log(animation.segments);
-      animation.playSegments([300,340], true);
+      animation.playSegments([300,341], true);
     } else {
       clearInterval(idleInterval); // Clear the interval if idleCheck is false
       // animation.play();
     }
-  }, 1333 ); // Interval set to 1000 milliseconds (1 second)
+  }, 1333); // Interval set to 1000 milliseconds (1 second)
 }
 
-const stopIdle = async () => {
-  console.log("stopIdle triggered");
+const stopIdle = () => {
+  animationDiv.removeEventListener("mousedown",stopIdle);
   idleCheck = false;
   clearInterval(idleInterval); // Ensure to clear the interval when stopping the idle
-  animation.playSegments([341,362],true);
-  animationDiv.removeEventListener("mousedown",stopIdle);
-  await sleep(800);
-  displayNextButton();
+  animation.playSegments([341,360],true);
+  
+  setTimeout(() => {
+    displayNextButton();
+  },650);
 }
 
 const displayNextButton = () => {
@@ -67,4 +80,7 @@ const displayNextButton = () => {
 
 }
 
-startAnimation();
+animation.addEventListener("DOMLoaded",() => {
+  animation.playSegments([0,120],true);
+  startAnimation();
+})

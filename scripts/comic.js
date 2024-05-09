@@ -17,30 +17,24 @@ const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 var animationDiv = document.getElementById('animationContainer');
 
 const pauseAndPlay =  async () =>{
-  animation.play();
-  await sleep(250);
-  animation.pause();
-  animation.play();
+  animation.playSegments([120,358],true);
+  setTimeout(() => {
+    animationDiv.addEventListener("mousedown", playRest);
+  },7100);
   animationDiv.removeEventListener("mousedown",pauseAndPlay);
-  idleCheck = true;
-  await sleep(8000);
-  animation.pause();
-  animationDiv.addEventListener("mousedown", playRest);
-  playIdle();
 }
 
 const startAnimation = async () => {
-    await sleep(4380);
-    animation.pause();
-    animationDiv.addEventListener("mousedown",pauseAndPlay);
+  await sleep(3600);
+  animationDiv.addEventListener("mousedown",pauseAndPlay);
 }
-var idleInterval; // Variable to hold the interval ID
-var idleCheck = true;
 
-const playRest = async () => {
-  animation.play();
-  await sleep(1000);
-  displayNextButton();
+const playRest = () => {
+  animationDiv.removeEventListener("mousedown", playRest);
+  animation.playSegments([358,390],true);
+  setTimeout(() => {
+    displayNextButton();
+  },960);
 }
 
 const displayNextButton = () => {
@@ -51,5 +45,7 @@ const displayNextButton = () => {
 
 }
 
-
-startAnimation();
+animation.addEventListener("DOMLoaded", () => {
+  animation.playSegments([0,120],true);
+  startAnimation();
+})

@@ -18,20 +18,17 @@ var animationDiv = document.getElementById('animationContainer');
 var pacifierDiv = document.getElementById('pacifier');
 
 const pauseAndPlay =  async () =>{
-  animation.play();
-  await sleep(250);
-  animation.pause();
-  animation.play();
+  animation.playSegments([120,300],true);
+  setTimeout(() => {
+    idleCheck = true;
+    animationDiv.addEventListener("mousedown", stopIdle);
+    playIdle();
+  },4800);
   animationDiv.removeEventListener("mousedown",pauseAndPlay);
-  idleCheck = true;
-  await sleep(6300);
-  animationDiv.addEventListener("mousedown", stopIdle);
-  playIdle();
 }
 
 const startAnimation = async () => {
-    await sleep(4380);
-    animation.pause();
+    await sleep(3600);
     animationDiv.addEventListener("mousedown",pauseAndPlay);
 }
 var idleInterval; // Variable to hold the interval ID
@@ -49,14 +46,14 @@ const playIdle = async () => {
   }, 1233); // Interval set to 1000 milliseconds (1 second)
 }
 
-const stopIdle = async () => {
-  console.log("stopIdle triggered");
+const stopIdle = () => {
+  animationDiv.removeEventListener("mousedown",stopIdle);
   idleCheck = false;
   clearInterval(idleInterval); // Ensure to clear the interval when stopping the idle
   animation.playSegments([337,400],true);
-  animationDiv.removeEventListener("mousedown",stopIdle);
-  await sleep(800);
-  displayNextButton();
+  setTimeout(() => {
+    displayNextButton();
+  },1700);
 }
 
 const displayNextButton = () => {
@@ -67,4 +64,7 @@ const displayNextButton = () => {
 
 }
 
-startAnimation();
+animation.addEventListener("DOMLoaded", () => {
+  animation.playSegments([0,120],true);
+  startAnimation();
+})
