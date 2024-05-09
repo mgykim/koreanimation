@@ -21,11 +21,13 @@ body {
     padding: 0;
     color: #333;
     background-color: #ffe8a4;
+    max-height: 100vh;
 }
 
 footer {
-    background: #333;
+    background: var(--dbrown);
     color: white;
+    padding-left: 50px;
 }
 
 #pacifier{
