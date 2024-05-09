@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 var animation = bodymovin.loadAnimation({
     container: document.getElementById('animationContainer'), // the dom element that will contain the animation
-    renderer: 'canvas', // Render type: 'canvas', 'html'
+    renderer: 'svg', // Render type: 'canvas', 'html'
     loop: false, // loop the animation
     autoplay: true, // start playing the animation as soon as it is loaded
+    initialSegment: [0,120],
     path: '../animations/baby/baby.json', // the path to the animation json
   });
 
@@ -18,33 +19,29 @@ var animationDiv = document.getElementById('animationContainer');
 var pacifierDiv = document.getElementById('pacifier');
 
 const pauseAndPlay =  async () =>{
-  animation.play();
-  await sleep(250);
-  animation.pause();
-  animation.play();
+  animation.playSegments([120,437],true);
   animationDiv.removeEventListener("mousedown",pauseAndPlay);
   idleCheck = true;
-  await sleep(10053);
-  animationDiv.addEventListener("mousedown", stopIdle);
+  await sleep(9500);
   playIdle();
+  animationDiv.addEventListener("mousedown", stopIdle);
 }
 
 const startAnimation = async () => {
-    await sleep(4150);
-    animation.pause();
+    await sleep(3600);
     animationDiv.addEventListener("mousedown",pauseAndPlay);
 }
 var idleInterval; // Variable to hold the interval ID
 var idleCheck = true;
 
 const playIdle = () => {
-  displayAudioButton();
+  // displayAudioButton();
   idleInterval = setInterval(() => {
     if (idleCheck) {
       animation.playSegments([437,455], true);
     } else {
       clearInterval(idleInterval); // Clear the interval if idleCheck is false
-      animation.play();
+      // animation.play();
     }
   }, 1000); // Interval set to 1000 milliseconds (1 second)
 }
@@ -55,7 +52,6 @@ const stopIdle = async () => {
   clearInterval(idleInterval); // Ensure to clear the interval when stopping the idle
   animation.playSegments([456,480],true);
   animationDiv.removeEventListener("mousedown",stopIdle);
-  await sleep(800);
   displayNextButton();
 }
 
@@ -76,4 +72,9 @@ const displayNextButton = () => {
 //   }
 // }
 
-startAnimation();
+animation.addEventListener("DOMLoaded", () => {
+  animation.playSegments([0,120],true);
+  startAnimation();
+})
+
+// startAnimation();
