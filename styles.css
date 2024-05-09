@@ -7,8 +7,27 @@
     src: url('media/Typo_DoranDoran EB.ttf') format('truetype'),
 }
 
+
 * {
     box-sizing: border-box;
+}
+
+.play-pause-btn {
+    background-color: #db3d77;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 3px solid var(--dbrown);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.play-pause-btn:hover {
+    background-color: #ff6491;
+}
+
+.play-pause-btn:active {
+    transform: scale(0.98);
 }
 
 :root {
@@ -25,7 +44,13 @@ body {
     padding: 0;
     color: #333;
     background-color: #ffe8a4;
-    overflow: hidden;
+    /* overflow: hidden; */
+}
+
+button{
+    top:0;
+    z-index: 3;
+    position: fixed;
 }
 
 
@@ -51,4 +76,27 @@ body {
     width:10%;
     height:10%;
     position:absolute;
+}
+
+
+
+
+h1 {
+    font-family: 'Albert Sans', sans-serif;
+    font-weight: 1000;
+    font-size: 22px;
+    line-height: 0;
+    position: sticky;
+    color: var(--dbrown);
+}
+p {
+    font-family: 'Albert Sans', sans-serif;
+    font-weight: 450;
+    font-size: 16px;
+    position: sticky;
+    color: var(--dbrown);
+}
+
+.about-text{
+    padding: 15vh 25% 10vh 25%; 
 }

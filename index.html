@@ -8,6 +8,34 @@
     <link rel="stylesheet" href="nav.css">
 </head>
 <body>
+
+    <audio id="bgmusic" loop>
+        <source src="media\산토끼 Instrumental.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <button onclick="togglePlay()" class="play-pause-btn">Play/Pause</button>
+    
+    <script>
+        var myAudio = document.getElementById("bgmusic");
+        var isPlaying = false;
+    
+        function togglePlay() {
+            if (isPlaying) {
+                myAudio.pause()
+            } else {
+                myAudio.play();
+            }
+            isPlaying = !isPlaying;
+        }
+    
+        myAudio.onplaying = function() {
+            isPlaying = true;
+        };
+        myAudio.onpause = function() {
+            isPlaying = false;
+        };
+    </script>
+
     <header>
         <a href="pages/about.html">ABOUT</a>
         <nav>
@@ -16,8 +44,8 @@
                     <a href="#">LETTERS</a>
                     <div class="dropdown-content">
                         <a href="pages/a.html">ㅏ</a>
-                        <a href="#">ㅑ</a>
-                        <a href="#">ㄱ</a>
+                        <a href="#">ㅗ</a>
+                        <a href="#">ㅎ</a>
                     </div>
                 </li>
             </ul>

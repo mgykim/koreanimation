@@ -12,9 +12,10 @@ header {
     height: 14vh;
 }
 header img {
-    height: 7vh;
+    height: 6vh;
 }
 header a {
+    display: flex;
     color: var(--mint);
     -webkit-text-stroke-width: 1.5px; 
     -webkit-text-stroke-color: #37172f; 
