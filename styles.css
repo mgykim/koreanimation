@@ -7,6 +7,10 @@
     src: url('media/Typo_DoranDoran EB.ttf') format('truetype'),
 }
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --dbrown: #37172f;
     --magenta: #db3d77;
@@ -21,15 +25,26 @@ body {
     padding: 0;
     color: #333;
     background-color: #ffe8a4;
-    max-height: 100vh;
+    overflow: hidden;
 }
 
-footer {
-    background: var(--dbrown);
-    color: white;
-    padding-left: 50px;
-}
 
+.title-animation {
+    position: fixed;
+    height: auto;
+    top: 48%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
+.animationContainer {
+    position: fixed;
+    height: auto;
+    top: 52%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+}
 #pacifier{
     left:20%;
     top:50%;

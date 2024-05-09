@@ -1,24 +1,31 @@
 header {
-    height: 60px;
+    background-color: var(--beige);
+    width: 100%; 
     display: flex;
     justify-content: space-between;
-    padding: 20px 30px;
+    align-items: center;
+    padding: 10px 60px;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 14vh;
 }
-
 header img {
-    height: 55px;
+    height: 7vh;
 }
 header a {
-    color: var(--magenta);
-    font-size: 24px;
+    color: var(--mint);
+    -webkit-text-stroke-width: 1.5px; 
+    -webkit-text-stroke-color: #37172f; 
+    text-shadow: 3px 3px 0 #37172f;
+    font-size: 28px;
     padding: 10px;
     text-decoration: none;
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
 }
 
 .nav-list {
@@ -32,11 +39,14 @@ nav {
     text-align: center;
     text-decoration: none;
     padding: 10px;
-    color: var(--magenta);
+    color: var(--mint);
+    -webkit-text-stroke-width: 1.5px; 
+    -webkit-text-stroke-color: #37172f; 
+    text-shadow: 3px 3px 0 #37172f;
 }
 
 .dropdown {
-    position: relative;
+    position: sticky;
     font-size: 24px;
 }
 
@@ -58,6 +68,9 @@ nav .dropdown-content a {
     padding: 10px 15px;
     text-align: center;
     text-decoration: none;
+    -webkit-text-stroke-width: 1px; 
+    -webkit-text-stroke-color: white; 
+    text-shadow: 4px 2px 1px #37172f;
 }
 
 nav .dropdown-content a:hover {
@@ -73,4 +86,16 @@ nav .dropdown-content a:hover {
     content: "";
     clear: both;
     display: block;
+}
+
+
+
+footer {
+    background-color: var(--beige);
+    bottom: 0;
+    color: var(--magenta);
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    font-size: 24px;
 }
